@@ -45,12 +45,6 @@ To get started with the Athena Notification Plugin, you can clone it from the so
 git clone https://github.com/Booster1212/plugin-notifications.git
 ```
 
-2. Change your current directory to the cloned project:
-
-```shell
-cd athena-notification-plugin
-```
-
 ## Acknowledgments
 
 -   This project was inspired by the need for a simple and customizable notification system in Athena applications.
