@@ -11,6 +11,10 @@ export class NotifyController {
         }
 
         Athena.webview.emit(player, NotifyEvents.CREATE_NOTIFICATION, notification);
+
+        if (notification.oggFile) {
+            Athena.player.emit.sound2D(player, `@plugins/sounds/plugin-notifications/${notification.oggFile}`, 0.15);
+        }
     }
 
     static debug(msg: string) {

@@ -12,14 +12,20 @@ export class NotifyController {
         }
 
         AthenaClient.webview.emit(NotifyEvents.CREATE_NOTIFICATION, notification);
+
+        if (notification.oggFile) {
+            AthenaClient.systems.sound.play2d(`@plugins/sounds/plugin-notifications/${notification.oggFile}`, 0.15);
+        }
     }
 }
 
 alt.on('enteredVehicle', (veh: alt.Vehicle, seat: number) => {
     const currentVeh = VehicleData.find((x) => x.hash === veh.model);
     NotifyController.addNotification({
-        title: 'Vehicle-Entered',
+        title: 'Vehicle Entered',
+        subTitle: 'Success',
         message: `You've entered vehicle: ${currentVeh.displayName}!`,
-        icon: '🚗',
+        icon: 'ℹ️',
+        oggFile: 'notification.ogg',
     });
 });
